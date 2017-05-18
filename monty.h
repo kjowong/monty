@@ -28,8 +28,8 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 void print_node_pall(stack_t *h);
 void nop_node(stack_t *h);
@@ -37,6 +37,6 @@ stack_t *pop_node_opcode(stack_t **head, size_t line_number);
 stack_t *swap_first_second(stack_t *h, size_t line_number);
 stack_t *add_node_push(stack_t **head, int n);
 void print_first_pint(stack_t *h, size_t line_number);
-stack_t *swap_first_second(stack_t *h, size_t line_number);
+stack_t *add_first_second(stack_t *h, size_t line_number);
 size_t list_len(stack_t *h);
 #endif

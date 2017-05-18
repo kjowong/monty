@@ -7,8 +7,8 @@
  */
 int main(int ac, char **av)
 {
-	size_t line_number, line_len;
-	int retval;
+	size_t line_number;
+	int retval, line_len;
 	FILE *fp;
 	char *line, **tokens;
 	stack_t *list_head;

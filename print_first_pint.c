@@ -9,7 +9,7 @@ int print_first_pint(stack_t **h, size_t line_number)
 {
 	if (h == NULL || *h == NULL)
 	{
-		print("L%d: can't pint, stack empty", line_number);
+		printf("L%d: can't pint, stack empty", line_number);
 		return (-1);
 	}
 	else

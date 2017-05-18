@@ -9,7 +9,7 @@
 int find_opcode(char **token, size_t line_number, stack_t **head)
 {
 
-	opcode_t opcodes[] = {
+	instruction_t opcodes[] = {
 		{"pall", print_node_pall},
 		{"pint", print_first_pint},
 		{"pop", pop_node},
@@ -26,7 +26,7 @@ int find_opcode(char **token, size_t line_number, stack_t **head)
 	i = 0;
 	if (strcmp(token[0], "push") == 0)
 	{
-		retval = push_node(head, token[1]);
+		retval = push_node(head, atoi(token[1]));
 		return (retval);
 	}
 	while ((opcodes + i)->opcode != NULL)

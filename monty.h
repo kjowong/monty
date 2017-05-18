@@ -44,4 +44,8 @@ int push_node(stack_t **head, int n);
 int print_first_pint(stack_t **h, size_t line_number);
 int add_first_second(stack_t **h, size_t line_number);
 size_t list_len(stack_t *h);
+int count_words(char *str, char delim);
+int _wrdlen(char *s, char delim);
+char **strtow(char *str, char delim);
+int find_opcode(char **token, size_t line_number, stack_t **head);
 #endif

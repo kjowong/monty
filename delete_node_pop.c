@@ -7,12 +7,11 @@
  */
 int pop_node(stack_t **head, size_t line_number)
 {
-	int n;
 	stack_t *temp;
 
 	if (head == NULL || *head == NULL)
 	{
-		printf("L%d: can't pop an empty stack\n", line_number);
+		printf("L%lu: can't pop an empty stack\n", line_number);
 		return (-1);
 	}
 	temp = *head;

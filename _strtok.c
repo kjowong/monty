@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "monty.h"
 /**
  * count_words - counts separate words in string
  * @str: pointer to s

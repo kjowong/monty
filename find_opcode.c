@@ -31,7 +31,6 @@ int find_opcode(char **token, unsigned int line_number, stack_t **head)
 	}
 	while ((opcodes + i)->opcode != NULL)
 	{
-		//	printf("token: %s %lu ops: %s %lu\n", token[0], strlen(token[0]), (opcodes + i)->opcode, strlen((opcodes + i)->opcode));
 		if (strncmp(token[0], (opcodes + i)->opcode, strlen((opcodes + i)->opcode)) == 0)
 		{
 			(opcodes + i)->f(head, line_number);

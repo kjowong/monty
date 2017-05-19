@@ -2,9 +2,10 @@
 /**
  * print_node_pall - function that prints all the elements of a list
  * @h: pointer to the constant stack_t head
+ * @line_number: line number in the file
  * Return: none
  */
-void print_node_pall(stack_t **h, __attribute__((unused)) unsigned int line_number)
+void print_node_pall(stack_t **h, __attribute__((unused))unsigned int line_number)
 {
 	stack_t *temp;
 

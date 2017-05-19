@@ -1,9 +1,10 @@
 #include "monty.h"
 /**
   * nop_node - a function that does nothing
-  * Return: none
+  * @head: pointer to linked list
+  * @line_number: number of lines in file
   */
-void nop_node(__attribute__((unused)) stack_t **head, __attribute__((unused)) unsigned int line_number)
+void nop_node(stack_t **head, __attribute__((unused)) unsigned int line_number)
 {
-	return;
+	(void)head;
 }

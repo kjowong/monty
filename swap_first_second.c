@@ -3,23 +3,25 @@
  * swap_first_second - swaps the top two elements of the stack
  * @h: head pointer
  * @line_number: line number in the file with Monty byte code
- * Return: 0 on success, -1 on failure
+ * Return: none
  */
-int swap_first_second(stack_t **h, size_t line_number)
+void swap_first_second(stack_t **h, unsigned int line_number)
 {
 	stack_t *tmp;
 
 	if (list_len(*h) < 2)
 	{
-		printf("L%lu: can't swap, stack too short", line_number);
-		return (-1);
+		printf("L%u: can't swap, stack too short", line_number);
+		retval = -1;
+		return;
 	}
 
 	tmp = *h;
 	*h = tmp->next;
-	(*h)->prev = NULL;
 	tmp->next = (*h)->next;
+	(*h)->next = tmp;
 	tmp->prev = *h;
+	(*h)->prev = NULL;
 	(tmp->next)->prev = tmp;
-	return (0);
+	retval = 0;
 }

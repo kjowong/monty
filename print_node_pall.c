@@ -2,20 +2,23 @@
 /**
  * print_node_pall - function that prints all the elements of a list
  * @h: pointer to the constant stack_t head
- * Return: 0 on success, -1 on failure
+ * Return: none
  */
-int print_node_pall(stack_t **h, __attribute__((unused)) size_t line_number)
+void print_node_pall(stack_t **h, __attribute__((unused)) unsigned int line_number)
 {
 	stack_t *temp;
 
 	temp = *h;
 
-	if (temp == NULL)
-		return (-1);
+	if (h == NULL || *h == NULL)
+	{
+		retval = -1;
+		return;
+	}
 	while (temp != NULL)
 	{
 		printf("%d\n", temp->n);
 		temp = temp->next;
 	}
-	return (0);
+	retval = 0;
 }

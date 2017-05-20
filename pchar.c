@@ -8,13 +8,13 @@ void pchar(stack_t **h, unsigned int line_number)
 {
 	if (h == NULL || *h == NULL)
 	{
-		printf("L%u: can't pchar, stack empty", line_number);
+		printf("L%u: can't pchar, stack empty\n", line_number);
 		globals.retval = -1;
 		return;
 	}
 	if ((*h)->n < 32 || (*h)->n > 126)
 	{
-		printf("L%u: can't pchar, value out of range", line_number);
+		printf("L%u: can't pchar, value out of range\n", line_number);
 		globals.retval = -1;
 		return;
 	}

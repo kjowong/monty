@@ -13,12 +13,12 @@ void add_first_second(stack_t **h, unsigned int line_number)
 	if (list_len(*h) < 2)
 	{
 		printf("L%u: can't add, stack too short\n", line_number);
-		retval = -1;
+		globals.retval = -1;
 		return;
 	}
 	tmp = (*h)->next;
 	sum = (*h)->n + tmp->n;
 	tmp->n = sum;
 	pop_node(h, line_number);
-	retval = 0;
+	globals.retval = 0;
 }

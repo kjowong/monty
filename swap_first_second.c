@@ -12,7 +12,7 @@ void swap_first_second(stack_t **h, unsigned int line_number)
 	if (list_len(*h) < 2)
 	{
 		printf("L%u: can't swap, stack too short\n", line_number);
-		retval = -1;
+		globals.retval = -1;
 		return;
 	}
 
@@ -23,5 +23,5 @@ void swap_first_second(stack_t **h, unsigned int line_number)
 	tmp->prev = *h;
 	(*h)->prev = NULL;
 	(tmp->next)->prev = tmp;
-	retval = 0;
+	globals.retval = 0;
 }

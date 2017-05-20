@@ -9,8 +9,8 @@ char **tokenize(char *line, unsigned int line_number)
 {
 	char **tokens;
 	int i;
-	char *token;
-	char *delim = "\n ";
+/*	char *token;*/
+	char *delim = "\t\n ";
 
 	tokens = malloc(sizeof(char *) * 3);
 	if (tokens == NULL)
@@ -20,24 +20,22 @@ char **tokenize(char *line, unsigned int line_number)
 	}
 	for (i = 0; i < 3; i++)
 		tokens[i] = NULL;
-	token = strtok(line, delim);
-	tokens[0] = strdup(token);
+	tokens[0] = strtok(line, delim);
 	if (tokens[0] == NULL)
 	{
 		printf("Error: malloc failed\n");
 		free_array(tokens);
 		return (NULL);
 	}
-	if (strcmp(token, "push") == 0)
+	while (tokens != NULL)
 	{
-		token = strtok(NULL, delim);
-		if (token == NULL || token[0] == '\n' || !is_int(token))
+		tokens[1] = strtok(NULL, delim);
+		if (tokens == NULL || tokens[0] == '\n' || !is_int(tokens[1]))
 		{
 			printf("L%u: usage: push integer\n", line_number);
 			free_array(tokens);
 			return (NULL);
 		}
-		tokens[1] = strdup(token);
 		if (tokens[1] == NULL)
 		{
 			printf("Error: malloc failed\n");

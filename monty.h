@@ -36,7 +36,20 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
-extern int retval;
+
+/**
+  * struct global_s - hold global variables
+  * @retval: return value of functions
+  * @mode: mode of list
+  */
+typedef struct global_s
+{
+	int retval;
+	int mode;
+	char *command;
+	char *push_val;
+} global_t;
+extern global_t globals;
 void print_node_pall(stack_t **h, unsigned int line_number);
 void nop_node(stack_t **h, unsigned int line_number);
 void pop_node(stack_t **head, unsigned int line_number);

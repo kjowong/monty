@@ -12,11 +12,11 @@ void pop_node(stack_t **head, unsigned int line_number)
 	if (head == NULL || *head == NULL)
 	{
 		printf("L%u: can't pop an empty stack\n", line_number);
-		retval = -1;
+		globals.retval = -1;
 		return;
 	}
 	temp = *head;
 	*head = temp->next;
 	free(temp);
-	retval = 0;
+	globals.retval = 0;
 }

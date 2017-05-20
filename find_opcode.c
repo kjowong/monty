@@ -27,14 +27,14 @@ int find_opcode(char **token, unsigned int line_number, stack_t **head)
 	if (strcmp(token[0], "push") == 0)
 	{
 		push_node(head, atoi(token[1]));
-		return (retval);
+		return (globals.retval);
 	}
-	while ((opcodes + i)->opcode != NULL)
+	while (opcodes[i].opcode != NULL)
 	{
-		if (strncmp(token[0], (opcodes + i)->opcode, strlen((opcodes + i)->opcode)) == 0)
+		if (strncmp(token[0], opcodes[i].opcode, strlen(opcodes[i].opcode)) == 0)
 		{
-			(opcodes + i)->f(head, line_number);
-			return (retval);
+			opcodes[i].f(head, line_number);
+			return (globals.retval);
 		}
 		i++;
 	}

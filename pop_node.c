@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
-  * pop_node_opcode - function that deletes the head node & returns its data
+  * pop_node - function that deletes the head node & returns its data
   * @head: pointer to a pointer
   * @line_number: line number in the file with Monty bytecode
   * Return: none
@@ -17,6 +17,8 @@ void pop_node(stack_t **head, unsigned int line_number)
 	}
 	temp = *head;
 	*head = temp->next;
+	if (*head)
+		(*head)->prev = NULL;
 	free(temp);
 	globals.retval = 0;
 }

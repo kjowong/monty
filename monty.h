@@ -41,6 +41,8 @@ typedef struct instruction_s
   * struct global_s - hold global variables
   * @retval: return value of functions
   * @mode: mode of list
+  * @command: byte code command
+  * @push_val: argument to push command
   */
 typedef struct global_s
 {
@@ -50,7 +52,8 @@ typedef struct global_s
 	char *push_val;
 } global_t;
 extern global_t globals;
-void print_node_pall(stack_t **h, unsigned int line_number);
+void push_node_mode(stack_t **head, unsigned int line_number);
+void print_all_pall(stack_t **h, unsigned int line_number);
 void nop_node(stack_t **h, unsigned int line_number);
 void pop_node(stack_t **head, unsigned int line_number);
 void swap_first_second(stack_t **h, unsigned int line_number);
@@ -58,10 +61,10 @@ void push_node(stack_t **head, int n);
 void print_first_pint(stack_t **h, unsigned int line_number);
 void add_first_second(stack_t **h, unsigned int line_number);
 size_t list_len(stack_t *h);
-int find_opcode(char **token, unsigned int line_number, stack_t **head);
+int find_opcode(stack_t **head, unsigned int line_number);
 void free_array(char **array);
 void free_list(stack_t *head);
-char **tokenize(char *line, unsigned int line_number);
+void tokenize(char *line);
 int is_empty(char *str);
 int is_int(char *str);
 #endif

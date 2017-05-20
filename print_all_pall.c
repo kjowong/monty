@@ -1,11 +1,11 @@
 #include "monty.h"
 /**
- * print_node_pall - function that prints all the elements of a list
+ * print_pall_pall - function that prints all the elements of a list
  * @h: pointer to the constant stack_t head
  * @line_num: line number in the file
  * Return: none
  */
-void print_node_pall(stack_t **h, __attribute__((unused))unsigned int line_num)
+void print_all_pall(stack_t **h, __attribute__((unused))unsigned int line_num)
 {
 	stack_t *temp;
 

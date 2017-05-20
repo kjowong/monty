@@ -2,48 +2,14 @@
 /**
  * tokenize - toknizes the line from file
  * @line: pointer to line from file
- * @line_number: line number in the file with Monty bytecode
- * Return: array of pointers where 1st is cmd and 2nd arg
+ * Return: none
  */
-char **tokenize(char *line, unsigned int line_number)
+void tokenize(char *line)
 {
-	char **tokens;
-	int i;
-/*	char *token;*/
 	char *delim = "\t\n ";
 
-	tokens = malloc(sizeof(char *) * 3);
-	if (tokens == NULL)
-	{
-		printf("Error: malloc failed\n");
-		return (NULL);
-	}
-	for (i = 0; i < 3; i++)
-		tokens[i] = NULL;
-	tokens[0] = strtok(line, delim);
-	if (tokens[0] == NULL)
-	{
-		printf("Error: malloc failed\n");
-		free_array(tokens);
-		return (NULL);
-	}
-	while (tokens != NULL)
-	{
-		tokens[1] = strtok(NULL, delim);
-		if (tokens == NULL || tokens[0] == '\n' || !is_int(tokens[1]))
-		{
-			printf("L%u: usage: push integer\n", line_number);
-			free_array(tokens);
-			return (NULL);
-		}
-		if (tokens[1] == NULL)
-		{
-			printf("Error: malloc failed\n");
-			free_array(tokens);
-			return (NULL);
-		}
-	}
-	return (tokens);
+	globals.command = strtok(line, delim);
+	globals.push_val = strtok(NULL, delim);
 }
 /**
  * is_empty - check if line needs t be tokenized

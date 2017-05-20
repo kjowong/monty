@@ -22,6 +22,7 @@ void swap_first_second(stack_t **h, unsigned int line_number)
 	(*h)->next = tmp;
 	tmp->prev = *h;
 	(*h)->prev = NULL;
-	(tmp->next)->prev = tmp;
+	if (tmp->next)
+		(tmp->next)->prev = tmp;
 	globals.retval = 0;
 }

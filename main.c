@@ -9,8 +9,13 @@ global_t globals;
 int main(int ac, char **av)
 {
 	unsigned int line_number; size_t line_len; FILE * fp;
-	char *line, **tokens; stack_t *list_head; int len;
+	char *line;
+	stack_t *list_head; int len;
+
 	globals.retval = 0;
+	globals.mode = 0;
+	globals.command = NULL;
+	globals.push_val =  0;
 
 	line = NULL; list_head = NULL; len = 0; line_number = 0; line_len = 0;
 	if (ac != 2)
@@ -27,21 +32,14 @@ int main(int ac, char **av)
 	while ((len = getline(&line, &line_len, fp)) != -1)
 	{
 		line_number++;
-		if (!line[0] == '\n' || !is_empty(line))
+		if (!(line[0] == '\n') && !is_empty(line))
 		{
-			tokens = tokenize(line, line_number); /* tokenize line */
-			if (tokens == NULL)
-			{
-				globals.retval = -1;
-				break;
-			}
-			globals.retval = find_opcode(tokens, line_number, &list_head);
+			tokenize(line); /* tokenize line */
+			globals.retval = find_opcode(&list_head, line_number);
 			if (globals.retval == -1)
 			{
-				free_array(tokens);
 				break;
 			}
-			free_array(tokens);
 		}
 	}
 	free(line); free_list(list_head); fclose(fp);

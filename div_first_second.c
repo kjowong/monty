@@ -16,7 +16,7 @@ void div_first_second(stack_t **h, unsigned int line_number)
 		globals.retval = -1;
 		return;
 	}
-	if ((*h)->n == 0)
+	if ((*h)->next->n == 0)
 	{
 		printf("L%u: division by zero\n", line_number);
 		globals.retval = -1;

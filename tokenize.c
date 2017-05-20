@@ -23,7 +23,7 @@ int is_empty(char *str)
 	i = 0;
 	while (str[i] != '\n' && str[i] != '\0')
 	{
-		if (str[i] != ' ')
+		if (str[i] != ' ' && str[i] != '#')
 			return (0);
 		i++;
 	}

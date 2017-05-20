@@ -22,8 +22,6 @@ void push_node(stack_t **head, int n)
 	if (new_node->next)
 		new_node->next->prev = new_node;
 	*head = new_node;
-	if (new_node->next)
-		new_node->next->prev = new_node;
 	globals.retval = 0;
 }
 /**

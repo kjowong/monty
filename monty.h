@@ -71,5 +71,6 @@ int is_int(char *str);
 void sub_first_second(stack_t **h, unsigned int line_number);
 void div_first_second(stack_t **h, unsigned int line_number);
 void mul_first_second(stack_t **h, unsigned int line_number);
+void mod_first_second(stack_t **h, unsigned int line_number);
 void print_rev(stack_t **h, unsigned int line_num);
 #endif

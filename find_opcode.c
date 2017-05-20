@@ -20,6 +20,7 @@ int find_opcode(stack_t **head, unsigned int line_number)
 		{"div", div_first_second},
 		{"mul", mul_first_second},
 		{"mod", mod_first_second},
+		{"pchar", pchar},
 		{NULL, NULL}
 	};
 

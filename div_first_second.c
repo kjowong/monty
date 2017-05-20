@@ -16,15 +16,15 @@ void div_first_second(stack_t **h, unsigned int line_number)
 		globals.retval = -1;
 		return;
 	}
-	if ((*h)->next->n == 0)
+	if ((*h)->n == 0)
 	{
 		printf("L%u: division by zero\n", line_number);
 		globals.retval = -1;
 		return;
 	}
 	tmp = (*h)->next;
-	div = tmp->n / (*h)->n;
-	tmp->n = div;
+	div = (tmp->n / (*h)->n);
 	pop_node(h, line_number);
+	tmp->n = div;
 	globals.retval = 0;
 }

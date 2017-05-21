@@ -43,5 +43,6 @@ int find_opcode(stack_t **head, unsigned int line_number)
 		i++;
 	}
 	printf("L%u: unknown instruction %s\n", line_number, globals.command);
-	return (-1);
+	globals.retval = -1;
+	return (globals.retval);
 }

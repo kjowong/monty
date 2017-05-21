@@ -77,7 +77,7 @@ void swap(stack_t **h, unsigned int line_number);
 void pop(stack_t **head, unsigned int line_number);
 
 /* push stack opcodes */
-void push(stack_t **head, int n);
+void push_node(stack_t **head, int n);
 void push_node_mode(stack_t **head, unsigned int line_number);
 void push_node_end(stack_t **head, int n);
 

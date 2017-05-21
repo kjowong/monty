@@ -93,8 +93,6 @@ void pstr(stack_t **h, unsigned int line_number);
 int is_empty(char *str);
 int is_int(char *str);
 size_t list_len(stack_t *h);
-
-/* tokenize fucntion */
 void tokenize(char *line);
 
 /* find opcode function pointer */

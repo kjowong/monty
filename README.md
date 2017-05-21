@@ -14,24 +14,17 @@ Once cloned over, the repository will contain the following files:
 |---------------|---------------------------------------|
 | monty.h   | header file with prototypes           |
 | main.c      | contains main function to Monty        |
-| build_all_variables.c     | struct function that builds the variables             |
-| builtin_funcs.c | functions for builtin commands |
-| cmd_executor.c     | function that executes the commands from user input|
-| envlist_to_array.c     | function that converts the environmental linked list to an double pointer array|
-| env_funcs.c | functions to handle the environment |
-| free_mem.c | functions that free memory allocation |
-| get_builtin_func.c     | function that get the builtins through a function pointer|
-| input_funcs.c | contains functions to handler user input |
-| input_list_to_array.c | converts the input linked list to a double pointer |
-| input_parserator.c     | function to parse the user's input |
-| input_to_array.c     | function that converts the string input into a double pointer array |
-| input_word_counter.c     | counts the words in the user's input |
-| memory_funcs.c     | contains functions to allocate memory |
-| path_parserator.c     | parses the path by `:` into directories |
-| print_funcs.c     | contains functions to print the list |
-| string_helper_funcs.c     | contains functions to find the string length, duplicate the string, etc |
-| string_helper_funcs2.c     | contains a function that concatenates two strings |
-| write.c     | function that writes to standard output |
+| print_node_pall.c     | prints all the values in the stack, starting from the top             |
+| delete_node_pop.c | removes top value of the stack |
+| add_first_second.c     | adds the first two elements of the stack |
+| add_node_push.c     | function that converts the environmental linked list to an double pointer array|
+| find_opcode.c | function pointer to find correct function |
+| free_mem.c | frees memory allocated by the stack |
+| list_len.c     | finds the length of the stack list|
+| nop_nodes.c | Does nothing |
+| print_first_pint.c | prints the value at the top of the stack, followed by newline |
+| swap_first_second.c     | swaps the top two elements in the stack |
+| _strtok.c     | tokenizes the Monty bytecode file passed in |
 
 ## Description of File Structure
 1. [build_all_variables.c](build_all_variables.c) - Builds all the variables needed for each function:
@@ -95,13 +88,12 @@ Once cloned over, the repository will contain the following files:
 ## How to Use
 First step is to clone the repository into your directory
 ```
-$ git clone https://github.com/ChristianAgha/simple_shell.git
+$ git clone https://github.com/kjowong/monty.git
 ```
-Compile all the `.c` files in simple_shell
+Compile all the `.c` files in monty
 ```
-gcc -Wall -Wextra -Werror -pedantic -g *.c -o hsh
+gcc -Wall -Werror -Wextra -pedantic *.c -o monty
 ```
-The `-g` flag is used to trace Valgrind errors, such as memory leaks and invalid reads
 
 ## Example of Use
 After compiling, run the executable `./hsh`

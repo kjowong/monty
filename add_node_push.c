@@ -3,9 +3,9 @@
  * push_node - adds a new node at the beginning of a list
  * @head: head pointer
  * @n: integer value of new node
- * Return: 0 on success, -1 on failure
+ * Return: none
  */
-int push_node(stack_t **head, int n)
+void push_node(stack_t **head, int n)
 {
 	stack_t *new_node;
 
@@ -13,11 +13,12 @@ int push_node(stack_t **head, int n)
 	if (new_node == NULL)
 	{
 		printf("Error: malloc failed\n");
-		return (-1);
+		retval = -1;
+		return;
 	}
 	new_node->n = n;
 	new_node->prev = NULL;
 	new_node->next = *head;
 	*head = new_node;
-	return (0);
+	retval = 0;
 }

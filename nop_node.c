@@ -1,9 +1,9 @@
-#include <monty.h>
+#include "monty.h"
 /**
   * nop_node - a function that does nothing
-  * Return: just return
+  * Return: none
   */
-int nop_node(__attribute__((unused)) stack_t **head, __attribute__((unused)) size_t line_number)
+void nop_node(__attribute__((unused)) stack_t **head, __attribute__((unused)) unsigned int line_number)
 {
-	return (0);
+	return;
 }

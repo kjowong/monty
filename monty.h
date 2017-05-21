@@ -52,31 +52,37 @@ typedef struct global_s
 	char *command;
 	char *push_val;
 } global_t;
+
+/* global variables */
 extern global_t globals;
 global_t globals;
 
-void push_node(stack_t **head, int n);
-void print_all_pall(stack_t **h, unsigned int line_number);
-void print_first_pint(stack_t **h, unsigned int line_number);
-void pop_node(stack_t **head, unsigned int line_number);
-void swap_first_second(stack_t **h, unsigned int line_number);
-void add_first_second(stack_t **h, unsigned int line_number);
-void nop_node(stack_t **h, unsigned int line_number);
+/* print stack opcodes */
+void pall(stack_t **h, unsigned int line_number);
+void pint(stack_t **h, unsigned int line_number);
+void rotl(stack_t **head, unsigned int line_number);
+void rotr(stack_t **head, unsigned int line_number);
+void print_rev(stack_t **h, unsigned int line_num);
 
-void sub_first_second(stack_t **h, unsigned int line_number);
-void div_first_second(stack_t **h, unsigned int line_number);
-void mul_first_second(stack_t **h, unsigned int line_number);
-void mod_first_second(stack_t **h, unsigned int line_number);
+/* math stack opcodes */
+void add(stack_t **h, unsigned int line_number);
+void sub(stack_t **h, unsigned int line_number);
+void _div(stack_t **h, unsigned int line_number);
+void mul(stack_t **h, unsigned int line_number);
+void mod(stack_t **h, unsigned int line_number);
+
+void nop_node(stack_t **h, unsigned int line_number);
+void swap_first_second(stack_t **h, unsigned int line_number);
+
+void pop_node(stack_t **head, unsigned int line_number);
+void push_node(stack_t **head, int n);
 void pchar(stack_t **h, unsigned int line_number);
 void pstr(stack_t **h, unsigned int line_number);
-void first_to_last_rotl(stack_t **head, unsigned int line_number);
-void last_to_first_rotr(stack_t **h, unsigned int ln);
 void stack(stack_t **h, unsigned int line_num);
 void queue(stack_t **h, unsigned int line_num);
 
 void push_node_mode(stack_t **head, unsigned int line_number);
 void push_node_end(stack_t **head, int n);
-void print_rev(stack_t **h, unsigned int line_num);
 
 void tokenize(char *line);
 int is_empty(char *str);

@@ -16,9 +16,9 @@ void pop_node(stack_t **head, unsigned int line_number)
 		return;
 	}
 	temp = *head;
-	*head = temp->next;
 	if (temp->next)
 		temp->next->prev = NULL;
+	*head = temp->next;
 	free(temp);
 	globals.retval = 0;
 }

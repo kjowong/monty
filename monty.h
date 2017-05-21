@@ -71,25 +71,36 @@ void _div(stack_t **h, unsigned int line_number);
 void mul(stack_t **h, unsigned int line_number);
 void mod(stack_t **h, unsigned int line_number);
 
-void nop_node(stack_t **h, unsigned int line_number);
-void swap_first_second(stack_t **h, unsigned int line_number);
+/* manipulate stack */
+void nop(stack_t **h, unsigned int line_number);
+void swap(stack_t **h, unsigned int line_number);
+void pop(stack_t **head, unsigned int line_number);
 
-void pop_node(stack_t **head, unsigned int line_number);
-void push_node(stack_t **head, int n);
-void pchar(stack_t **h, unsigned int line_number);
-void pstr(stack_t **h, unsigned int line_number);
-void stack(stack_t **h, unsigned int line_num);
-void queue(stack_t **h, unsigned int line_num);
-
+/* push stack opcodes */
+void push(stack_t **head, int n);
 void push_node_mode(stack_t **head, unsigned int line_number);
 void push_node_end(stack_t **head, int n);
 
-void tokenize(char *line);
+/* stack and queue */
+void stack(stack_t **h, unsigned int line_num);
+void queue(stack_t **h, unsigned int line_num);
+
+/* Other print functions */
+void pchar(stack_t **h, unsigned int line_number);
+void pstr(stack_t **h, unsigned int line_number);
+
+/* Stack helper functions */
 int is_empty(char *str);
 int is_int(char *str);
+size_t list_len(stack_t *h);
 
+/* tokenize fucntion */
+void tokenize(char *line);
+
+/* find opcode function pointer */
 int find_opcode(stack_t **head, unsigned int line_number);
+
+/* free memory functions */
 void free_array(char **array);
 void free_list(stack_t *head);
-size_t list_len(stack_t *h);
 #endif

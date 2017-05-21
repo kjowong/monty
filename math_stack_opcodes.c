@@ -19,7 +19,7 @@ void add(stack_t **h, unsigned int line_number)
 	tmp = (*h)->next;
 	sum = (*h)->n + tmp->n;
 	tmp->n = sum;
-	pop_node(h, line_number);
+	pop(h, line_number);
 	globals.retval = 0;
 }
 
@@ -41,7 +41,7 @@ void sub(stack_t **h, unsigned int line_number)
 	}
 	tmp = (*h)->next;
 	tmp->n -= (*h)->n;
-	pop_node(h, line_number);
+	pop(h, line_number);
 	globals.retval = 0;
 }
 
@@ -69,7 +69,7 @@ void _div(stack_t **h, unsigned int line_number)
 	}
 	tmp = (*h)->next;
 	tmp->n /= (*h)->n;
-	pop_node(h, line_number);
+	pop(h, line_number);
 	globals.retval = 0;
 }
 
@@ -98,7 +98,7 @@ void mul(stack_t **h, unsigned int line_number)
 	}
 	tmp = (*h)->next;
 	result = (tmp->n * (*h)->n);
-	pop_node(h, line_number);
+	pop(h, line_number);
 	tmp->n = result;
 	globals.retval = 0;
 }
@@ -128,7 +128,7 @@ void mod(stack_t **h, unsigned int line_number)
 	}
 	tmp = (*h)->next;
 	result = (tmp->n % (*h)->n);
-	pop_node(h, line_number);
+	pop(h, line_number);
 	tmp->n = result;
 	globals.retval = 0;
 }

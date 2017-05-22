@@ -2,9 +2,10 @@
 /**
  * tokenize - toknizes the line from file
  * @line: pointer to line from file
+ * @line_number: line number in the file with Monty bytecode
  * Return: array of pointers where 1st is cmd and 2nd arg
  */
-char **tokenize(char *line)
+char **tokenize(char *line, unsigned int line_number)
 {
 	char **tokens;
 	int i;
@@ -14,6 +15,7 @@ char **tokenize(char *line)
 	tokens = malloc(sizeof(char *) * 3);
 	if (tokens == NULL)
 	{
+		printf("Error: malloc failed\n");
 		return (NULL);
 	}
 	for (i = 0; i < 3; i++)
@@ -24,14 +26,24 @@ char **tokenize(char *line)
 	tokens[0] = strdup(token);
 	if (tokens[0] == NULL)
 	{
+		printf("Error: malloc failed\n");
+		free_array(tokens);
 		return (NULL);
 	}
 	if (strcmp(token, "push") == 0)
 	{
 		token = strtok(NULL, delim);
+		if (token == NULL || token[0] == '\n')
+                {
+                        printf("L%u: usage: push integer\n", line_number);
+			free_array(tokens);
+                        return (NULL);
+                }
 		tokens[1] = strdup(token);
 		if (tokens[1] == NULL)
 		{
+			printf("Error: malloc failed\n");
+			free_array(tokens);
 			return (NULL);
 		}
 	}

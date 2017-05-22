@@ -35,14 +35,13 @@ int main(int ac, char **av)
 			line_number++;
 			continue;
 		}
-		tokens = tokenize(line); /* tokenize line */
+		line_number++;
+		tokens = tokenize(line, line_number); /* tokenize line */
 		if (tokens == NULL)
 		{
-			printf("Error: malloc failed\n");
-			free_array(tokens);
 			break;
 		}
-		retval = find_opcode(tokens, ++line_number, &list_head);
+		retval = find_opcode(tokens, line_number, &list_head);
 		if (retval == -1)
 		{
 			free_array(tokens);

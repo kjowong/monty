@@ -48,6 +48,6 @@ size_t list_len(stack_t *h);
 int find_opcode(char **token, unsigned int line_number, stack_t **head);
 void free_array(char **array);
 void free_list(stack_t *head);
-char **tokenize(char *line);
+char **tokenize(char *line, unsigned int line_number);
 int is_empty(char *str);
 #endif

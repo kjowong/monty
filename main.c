@@ -39,31 +39,22 @@ int main(int ac, char **av)
 		if (tokens == NULL)
 		{
 			printf("Error: malloc failed\n");
+			free_array(tokens);
 			break;
 		}
 		retval = find_opcode(tokens, ++line_number, &list_head);
 		if (retval == -1)
+		{
+			free_array(tokens);
 			break;
+		}
 		free_array(tokens);
 	}
-	free_all(fp, line, tokens, list_head);
+	free(line);
+	free_list(list_head);
+	fclose(fp);
 	if (retval == -1)
 		exit(EXIT_FAILURE);
 	else
 		exit(EXIT_SUCCESS);
-}
-/**
- * free_all - frees all allocations
- * @fp: file pointer to close
- * @line: line from a file
- * @tokens: array of tokenized line
- * @list_head: head pointer to stack
- * Return: none
- */
-void free_all(FILE *fp, char *line, char **tokens, stack_t *list_head)
-{
-	free(line);
-	fclose(fp);
-	free_list(list_head);
-	free(tokens);
 }

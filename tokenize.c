@@ -32,7 +32,6 @@ char **tokenize(char *line)
 		tokens[1] = strdup(token);
 		if (tokens[1] == NULL)
 		{
-			free(tokens[0]);
 			return (NULL);
 		}
 	}

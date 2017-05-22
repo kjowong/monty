@@ -9,7 +9,7 @@ void print_first_pint(stack_t **h, unsigned int line_number)
 {
 	if (h == NULL || *h == NULL)
 	{
-		printf("L%u: can't pint, stack empty", line_number);
+		printf("L%u: can't pint, stack empty\n", line_number);
 		retval = -1;
 		return;
 	}

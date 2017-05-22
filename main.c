@@ -44,6 +44,7 @@ int main(int ac, char **av)
 		retval = find_opcode(tokens, ++line_number, &list_head);
 		if (retval == -1)
 			break;
+		free_array(tokens);
 	}
 	free_all(fp, line, tokens, list_head);
 	if (retval == -1)
@@ -64,5 +65,5 @@ void free_all(FILE *fp, char *line, char **tokens, stack_t *list_head)
 	free(line);
 	fclose(fp);
 	free_list(list_head);
-	free_array(tokens);
+	free(tokens);
 }

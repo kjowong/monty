@@ -50,5 +50,4 @@ void free_array(char **array);
 void free_list(stack_t *head);
 char **tokenize(char *line);
 int is_empty(char *str);
-void free_all(FILE *fp, char *line, char **tokens, stack_t *list_head);
 #endif

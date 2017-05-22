@@ -19,9 +19,7 @@ char **tokenize(char *line, unsigned int line_number)
 		return (NULL);
 	}
 	for (i = 0; i < 3; i++)
-	{
 		tokens[i] = NULL;
-	}
 	token = strtok(line, delim);
 	tokens[0] = strdup(token);
 	if (tokens[0] == NULL)
@@ -33,12 +31,12 @@ char **tokenize(char *line, unsigned int line_number)
 	if (strcmp(token, "push") == 0)
 	{
 		token = strtok(NULL, delim);
-		if (token == NULL || token[0] == '\n')
-                {
-                        printf("L%u: usage: push integer\n", line_number);
+		if (token == NULL || token[0] == '\n' || !is_int(token))
+		{
+			printf("L%u: usage: push integer\n", line_number);
 			free_array(tokens);
-                        return (NULL);
-                }
+			return (NULL);
+		}
 		tokens[1] = strdup(token);
 		if (tokens[1] == NULL)
 		{
@@ -62,6 +60,34 @@ int is_empty(char *str)
 	while (str[i] != '\n' && str[i] != '\0')
 	{
 		if (str[i] != ' ')
+			return (0);
+		i++;
+	}
+	return (1);
+}
+/**
+ * is_int - check if string contains all digits
+ * @str: pointer to string
+ * Return: 1 if it is, 0 if not
+ */
+int is_int(char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[0] == '-')
+		{
+			i++;
+			continue;
+		}
+		if (str[i] >= '0' && str[i] <= '9')
+		{
+			i++;
+			continue;
+		}
+		else
 			return (0);
 		i++;
 	}

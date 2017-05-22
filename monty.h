@@ -50,4 +50,5 @@ void free_array(char **array);
 void free_list(stack_t *head);
 char **tokenize(char *line, unsigned int line_number);
 int is_empty(char *str);
+int is_int(char *str);
 #endif

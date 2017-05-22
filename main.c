@@ -39,6 +39,7 @@ int main(int ac, char **av)
 		tokens = tokenize(line, line_number); /* tokenize line */
 		if (tokens == NULL)
 		{
+			retval = -1;
 			break;
 		}
 		retval = find_opcode(tokens, line_number, &list_head);

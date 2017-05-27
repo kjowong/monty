@@ -38,12 +38,12 @@ typedef struct instruction_s
 } instruction_t;
 
 /**
-  * struct global_s - hold global variables
-  * @retval: return value of functions
-  * @mode: mode of list
-  * @command: byte code command
-  * @push_val: argument to push command
-  */
+ * struct global_s - hold global variables
+ * @retval: return value of functions
+ * @mode: mode of list
+ * @command: byte code command
+ * @push_val: argument to push command
+ */
 typedef struct global_s
 {
 	int retval;

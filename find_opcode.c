@@ -8,6 +8,7 @@
 int find_opcode(stack_t **head, unsigned int line_number)
 {
 	instruction_t opcodes[] = {
+		{"prev", print_rev},
 		{"push", push_node_mode},
 		{"pall", print_all_pall},
 		{"pint", print_first_pint},

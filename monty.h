@@ -67,4 +67,5 @@ void free_list(stack_t *head);
 void tokenize(char *line);
 int is_empty(char *str);
 int is_int(char *str);
+void print_rev(stack_t **h, unsigned int line_num);
 #endif

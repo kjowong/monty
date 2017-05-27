@@ -32,7 +32,7 @@ int main(int ac, char **av)
 	while ((len = getline(&line, &line_len, fp)) != -1)
 	{
 		line_number++;
-		if (line[0] != '\n' || !is_empty(line))
+		if (!(line[0] == '\n') && !is_empty(line))
 		{
 			tokenize(line); /* tokenize line */
 			globals.retval = find_opcode(&list_head, line_number);

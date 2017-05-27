@@ -7,6 +7,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <math.h>
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer

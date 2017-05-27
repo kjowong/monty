@@ -20,6 +20,8 @@ void push_node(stack_t **head, int n)
 	new_node->prev = NULL;
 	new_node->next = *head;
 	*head = new_node;
+	if (new_node->next)
+		new_node->next->prev = new_node;
 	globals.retval = 0;
 }
 /**
@@ -38,6 +40,7 @@ void push_node_mode(stack_t **head, unsigned int line_number)
 	{
 		printf("L%u: usage: push integer\n", line_number);
 		globals.retval = -1;
+		return;
 	}
 	n = atoi(globals.push_val);
 	if (globals.mode == 0)

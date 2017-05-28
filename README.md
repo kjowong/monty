@@ -14,24 +14,18 @@ Once cloned over, the repository will contain the following files:
 |---------------|---------------------------------------|
 | monty.h   | header file with prototypes           |
 | main.c      | contains main function to Monty        |
-| print_node_pall.c     | prints all the values in the stack, starting from the top             |
-| delete_node_pop.c | removes top value of the stack |
-| add_first_second.c     | adds the first two elements of the stack |
-| add_node_push.c     | function that converts the environmental linked list to an double pointer array|
 | find_opcode.c | function pointer to find correct function |
-| free_mem.c | frees memory allocated by the stack |
-| list_len.c     | finds the length of the stack list|
-| nop_nodes.c | Does nothing |
-| print_first_pint.c | prints the value at the top of the stack, followed by newline |
-| swap_first_second.c     | swaps the top two elements in the stack |
-| _strtok.c     | tokenizes the Monty bytecode file passed in |
+| manipulate_stack_opcodes.c     | contains functions that manipulate the stack (pop, swap, nop, rotl, rotr) |
+| math_stack_opcodes.c | contains functions that perform math operations with node data (add, sub, mul, div, mod) |
+| print_stack_opcodes.c     | contains functions that print elements of the list (pall, pint, pchar, pstr, prev) |
+| push_stack_opcodes.c     | contains functions related to push node (push to beginning or end, check mode, switch mode)|
+| stack_helper_funcs.c | contains helper functions (tokenize, list lenght, free list, is_int, is_empty)|
 
 ## Description of File Structure
-1. [build_all_variables.c](build_all_variables.c) - Builds all the variables needed for each function:
-  * ``*build_all_variables()`` - builds all the variables needed for each function such as when building a linked list
-2. [builtin_funcs.c](builtin_funcs.c) - Includes two builtin functions:
-  * ``print_env()`` - Prints the user's current environment
-  * ``_setenv()`` - Allows the user to create or modify an environmental variable.
+1. [find_opcode.c](find_opcode.c) - Function pointer to find correct function pointer depending on opcode
+  * ``find_opcode()`` - Uses array of instruction_t structs to find appropriate function pointer depending on opcode
+2. [main.c](main.c) - File includes the main monty function
+  * ``main()`` - initializes global variable, opens file for reading, uses a loop to read file line by line
 3. [cmd_executor.c](cmd_executor.c) - Includes functions to execute the binary executable programs:
   * ``full_path_executor()`` - executes the binary executable if the user inputs the full path. For example: /bin/ls
   * ``path_cmd_executor()`` - executes the binary executable if the user inputs just the command. For example: ls

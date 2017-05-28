@@ -16,7 +16,6 @@ int main(int ac, char **av)
 	globals.mode = 0;
 	globals.command = NULL;
 	globals.push_val =  0;
-
 	line = NULL; list_head = NULL; len = 0; line_number = 0; line_len = 0;
 	if (ac != 2)
 	{

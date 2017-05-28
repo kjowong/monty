@@ -80,7 +80,7 @@ $ ./monty bytecode/00.m
 $
 ```
 ## Notes
-Other builtins such as aliases, history, and or command separators are not supported and are currently in development.
+Other functionalities are currently in development.
 
 ## Known Bugs
 There are no known bugs at the time.

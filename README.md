@@ -22,62 +22,35 @@ Once cloned over, the repository will contain the following files:
 | stack_helper_funcs.c | contains helper functions (tokenize, list lenght, free list, is_int, is_empty)|
 
 ## Description of File Structure
-1. [find_opcode.c](find_opcode.c) - Function pointer to find correct function pointer depending on opcode
-  * ``find_opcode()`` - Uses array of instruction_t structs to find appropriate function pointer depending on opcode
+1. [monty.h](monty.h) - Header file that includes prototypes and structs
 2. [main.c](main.c) - File includes the main monty function
   * ``main()`` - initializes global variable, opens file for reading, uses a loop to read file line by line
-3. [cmd_executor.c](cmd_executor.c) - Includes functions to execute the binary executable programs:
-  * ``full_path_executor()`` - executes the binary executable if the user inputs the full path. For example: /bin/ls
-  * ``path_cmd_executor()`` - executes the binary executable if the user inputs just the command. For example: ls
-4. [env_funcs.c](env_funcs.c) - Includes all functions that deal with the environment:
-  * ``add_env_node()`` - creates a linked list from the user's current environment
-  * ``create_env_list()`` - creates a linked list from the ``environ`` variables.
-5. [envlist_to_array.c](envlist_to_array.c) - Includes function to convert the environmental variable linked list into a double pointer array:
+3. [find_opcode.c](find_opcode.c) - Function to find correct function pointer depending on opcode
+  * ``find_opcode()`` - uses array of instruction_t structs to find appropriate function pointer depending on opcode
+4. [manipulate_stack_opcodes.c](manipulate_stack_opcodes.c) - Functions that manipulate the stack:
+  * ``pop()`` - removes the top element of the stack
+  * ``swap()`` - swaps the top two elements of the stack
+  * ``nop()`` - does nothing
+  * ``rotl()`` - rotates the stack to the top, top element becomes the last one, and second element becomes the first one
+  * ``rotr()`` - rotates the stack to the bottom, last element becomes the top element of the stack  
+5. [math_stack_opcodes.c](math_stack_opcodes.c) - Includes all functions that deal with the environment:
+  * ``add()`` - adds the top two elements of the stack, stores result in second element, and top element is removed
+  * ``sub()`` - subtracts the top element from the second element, stores result in second element, and top element is removed
+  * ``_div()`` - divides second element by the top element, stores result in second element, and top element is removed
+  * ``mul()`` - multiplies the top two elements of the stack, stores result in second element, and top element is removed
+  * ``mod()`` - computes the rest of the division of the second top element of the stack by the top element of the stack, stores result in second element, and top element is removed
+6. [print_stack_opcodes.c](print_stack_opcodes.c) - Includes function to convert the environmental variable linked list into a double pointer array:
   * ``conv_list_to_array()`` - Converts the environmental linked list into a double pointer array
-6. [free_mem.c](free_mem.c) - Includes functions to free memory:
+7. [push_stack_opcodes.c](push_stack_opcodes.c) - Includes functions to free memory:
   * ``free_input_list()`` - Frees the input linked list (Currently not in use)
   * ``free_env_list()`` - Frees the environmental variable linked list
   * ``free_env_array()`` - Frees the double pointer environmental variable array
   * ``free_path_array()`` - Frees the double pointer path array
   * ``free_mem()`` - Function that calls all the free functions
-7. [get_builtin_func.c](get_builtin_func.c) - Includes a function to get the builtin functions:
+8. [stack_helper_funcs.c](stack_helper_funcs.c) - Includes a function to get the builtin functions:
   * ``*get_builtin_func()`` - Function pointer that points to the builtin function the user inputs
-8. [input_funcs.c](input_funcs.c) - Include a function that handle the user's input:
-  * ``*add_node_end`` - Adds the user's input into a linked list (currently not in use).
-9. [input_list_to_array.c](input_list_to_array.c) - Includes a function to convert the input linked list into a double pointer array:
-  * ``conv_inputlist_to_array()`` - function to convert the input linked list into a double pointer array (currently not in use).
-10. [input_parserator.c](input_parserator.c) - Includes a function to parse the user's input:
-* ``*input_parserator()`` - a function to parse the user's input
-11. [input_to_array.c](input_to_array.c) - Includes a function that takes in the input and converts to a double pointer array:
-  * ``**input_to_array()`` - takes in the user input as a string and converts to a double pointer array
-12. [input_word_counter.c](input_word_counter.c) - Counts the tokens in the user input:
-  * ``input_token_count()`` - counts the amount of tokens in the input
-13. [memory_funcs.c](memory_funcs.c) - Includes functions for memory:
-  * ``*_grand_malloc()`` - allocates memory, filling area with null bytes '\0'
-  * ``*_memcopy()`` -  copies the memory area
-  * ``*_memset() - function that fills the memory with a constant byte
-14. [path_parserator.c](path_parserator.c) - Includes functions to parse the path:
-  * ``path_folder_counter()`` - counts the amount of folders in the path
-  * ``path_parserator()`` -  converts the environmental linked list into a double pointer array
-15. [print_funcs.c](print_funcs.c) - Includes functions to print the environmental list:
-  * ``print_env_list()`` - function that prints the environmental list
-  * ``print_input_list()`` -  function that prints the input list
-16. [shell.c](shell.c) - File includes the main shell function and signal handler:
-  * ``main()`` - main shell function
-  * ``signal_handler()`` -  function that handles the signal ^C
-17. [shell.h](shell.h) - Header file that includes prototypes and structs
-18. [string_helper_funcs.c](string_helper_funcs.c) - Includes functions that help the basic functionality for the shell:
-  * ``_strcmp()`` - function that compares the strings
-  * ``_strncmp()`` -  function that compares the strings up to at most the first n bytes of string 1
-  * ``_strcmp_env()`` -  function that compares the strings for the environmental variables
-  * ``*_strdup()`` -  function that duplicates the string
-  * ``_strlen()`` -  function that finds the length of the string
-19. [string_helper_funcs2.c](string_helper_funcs2.c) - Includes additional functions that help the basic functionality for the shell:
-  * ``*_strncat_env()`` - function that concatenates two strings
-20. [write_func.c](write_func.c) - Includes a function that writes to standard output:
-  * ``_write()`` - function that writes to standard output
-21. [AUTHORS](AUTHORS) - List of contributors.
-22. [man_1_simple_shell](man_1_simple_shell) - Manual page for the shell.
+9. [AUTHORS](AUTHORS) - List of contributors.
+10. [man_1_simple_shell](man_1_simple_shell) - Manual page for the shell.
 
 ## How to Use
 First step is to clone the repository into your directory
@@ -90,15 +63,13 @@ gcc -Wall -Werror -Wextra -pedantic *.c -o monty
 ```
 
 ## Example of Use
-After compiling, run the executable `./hsh`
+After compiling, run the executable `./monty file`
 ```
-$ ./hsh
-$ # You are now in our version of the shell
-$ ls -l
-total 3
--rwxrw-r-x 1 vagrant vagrant 5345 Apr 4 14:59 hello.c
--rwxrwxrwx 1 vagrant vagrant 5343 Mar 1 22:05 julien.c
--rwxrw-r-x 1 vagrant vagrant 5542 Feb 2 09:14 holberton.c
+$ ./monty bytecode/00.m
+3
+2
+1
+$
 ```
 ## Notes
 Other builtins such as aliases, history, and or command separators are not supported and are currently in development.

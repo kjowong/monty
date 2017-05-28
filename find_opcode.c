@@ -1,8 +1,8 @@
 #include "monty.h"
 /**
   * find_opcode - finds the opcode
-  * @line_number: number of lines in the file
   * @head: Pointer to the list
+  * @line_number: number of lines in the file
   * Return: -1 on failure
   */
 int find_opcode(stack_t **head, unsigned int line_number)

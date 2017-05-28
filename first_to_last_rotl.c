@@ -7,10 +7,12 @@
   * @ln: line number in the file with Monty bytecode
   * Return: none
  */
-void first_to_last_rotl(stack_t **h, __attribute__((unused)) unsigned int ln)
+void first_to_last_rotl(stack_t **h, __attribute__((unused))unsigned int ln)
 {
 	stack_t *temp;
 
+	if (!(*h) || !(*h) || (list_len(*h) < 2))
+		return;
 	temp = *h;
 	*h = temp->next;
 	while (1)

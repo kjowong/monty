@@ -74,5 +74,6 @@ void mul_first_second(stack_t **h, unsigned int line_number);
 void mod_first_second(stack_t **h, unsigned int line_number);
 void pchar(stack_t **h, unsigned int line_number);
 void first_to_last_rotl(stack_t **head, unsigned int line_number);
+void last_to_first_rotr(stack_t **h, unsigned int ln);
 void print_rev(stack_t **h, unsigned int line_num);
 #endif

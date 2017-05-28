@@ -22,6 +22,7 @@ int find_opcode(stack_t **head, unsigned int line_number)
 		{"mod", mod_first_second},
 		{"pchar", pchar},
 		{"rotl", first_to_last_rotl},
+		{"rotr", last_to_first_rotr},
 		{NULL, NULL}
 	};
 

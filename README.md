@@ -20,6 +20,7 @@ Once cloned over, the repository will contain the following files:
 | print_stack_opcodes.c     | contains functions that print elements of the list (pall, pint, pchar, pstr, prev) |
 | push_stack_opcodes.c     | contains functions related to push node (push to beginning or end, check mode, switch mode)|
 | stack_helper_funcs.c | contains helper functions (tokenize, list length, free list, is_int, is_empty)|
+| brainfuck | subdirectory with brainfuck programs |
 
 ## Description of File Structure
 1. [monty.h](monty.h) - Header file that includes prototypes and structs

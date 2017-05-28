@@ -18,21 +18,14 @@ void push_node(stack_t **head, int n)
 	}
 	new_node->n = n;
 	new_node->prev = NULL;
-	if (head == NULL || *head == NULL)
-	{
-		new_node->next = NULL;
-		*head = new_node;
-		globals.retval = 0;
-		return;
-	}
-	else
+	new_node->next = NULL;
+	if (*head != NULL)
 	{
 		new_node->next = *head;
-		if (*head)
-			(*head)->prev = new_node;
-		*head = new_node;
-		globals.retval = 0;
+		(*head)->prev = new_node;
 	}
+	*head = new_node;
+	globals.retval = 0;
 }
 /**
  * push_node_mode - checks what mode it is (stack/queue) and calls the right
@@ -46,7 +39,7 @@ void push_node_mode(stack_t **head, unsigned int line_number)
 {
 	int n;
 
-	if (!globals.push_val || !is_int(globals.push_val))
+	if ((globals.push_val == NULL) || (is_int(globals.push_val) == 0))
 	{
 		printf("L%u: usage: push integer\n", line_number);
 		globals.retval = -1;

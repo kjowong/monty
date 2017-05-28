@@ -22,8 +22,8 @@ void print_rev(stack_t **h, __attribute__((unused))unsigned int line_num)
 		temp = temp->next;
 	}
 	while (temp != NULL)
-        {
-                printf("%d\n", temp->n);
-                temp = temp->prev;
-        }
+	{
+		printf("%d\n", temp->n);
+		temp = temp->prev;
+	}
 }

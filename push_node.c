@@ -18,11 +18,21 @@ void push_node(stack_t **head, int n)
 	}
 	new_node->n = n;
 	new_node->prev = NULL;
-	new_node->next = *head;
-	if (*head)
-		(*head)->prev = new_node;
-	*head = new_node;
-	globals.retval = 0;
+	if (head == NULL || *head == NULL)
+	{
+		new_node->next = NULL;
+		*head = new_node;
+		globals.retval = 0;
+		return;
+	}
+	else
+	{
+		new_node->next = *head;
+		if (*head)
+			(*head)->prev = new_node;
+		*head = new_node;
+		globals.retval = 0;
+	}
 }
 /**
  * push_node_mode - checks what mode it is (stack/queue) and calls the right

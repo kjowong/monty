@@ -83,7 +83,7 @@ $
 Other functionalities are currently in development.
 
 ## Known Bugs
-There are no known bugs at the time.
+Currently the interpreter relies on the atoi function from the C standard library and overflows are not handled.
 
 ### Authors
 *Kimberly Wong* - [Github](https://github.com/kjowong) || [Twitter](https://twitter.com/kjowong) || [email](kimberly.wong@holbertonschool.com)

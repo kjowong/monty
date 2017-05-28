@@ -11,12 +11,7 @@ void print_all_pall(stack_t **h, __attribute__((unused))unsigned int line_num)
 
 	temp = *h;
 
-	if (h == NULL || *h == NULL)
-	{
-		globals.retval = -1;
-		return;
-	}
-	while (temp != NULL)
+	while (temp)
 	{
 		printf("%d\n", temp->n);
 		temp = temp->next;

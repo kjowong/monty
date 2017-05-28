@@ -19,7 +19,7 @@ Once cloned over, the repository will contain the following files:
 | math_stack_opcodes.c | contains functions that perform math operations on node data (add, sub, mul, div, mod) |
 | print_stack_opcodes.c     | contains functions that print elements of the list (pall, pint, pchar, pstr, prev) |
 | push_stack_opcodes.c     | contains functions related to push node (push to beginning or end, check mode, switch mode)|
-| stack_helper_funcs.c | contains helper functions (tokenize, list lenght, free list, is_int, is_empty)|
+| stack_helper_funcs.c | contains helper functions (tokenize, list length, free list, is_int, is_empty)|
 
 ## Description of File Structure
 1. [monty.h](monty.h) - Header file that includes prototypes and structs
@@ -47,7 +47,7 @@ Once cloned over, the repository will contain the following files:
   * ``prev()`` - prints all the elements of a list in reverse
 7. [push_stack_opcodes.c](push_stack_opcodes.c) - Functions related to push node:
   * ``push_node()`` - adds new node to the beginning of doubly linked list (stack mode)
-  * ``push_node_mode()`` - checks what mode we are suing (stack or queues) and calls the appropriate push function
+  * ``push_node_mode()`` - checks what mode we are using (stack or queues) and calls the appropriate push function
   * ``push_node_end()`` - function that adds new node to the end of doubly linked list (queue mode)
   * ``stack()`` - sets the format of the data to a stack (LIFO)
   * ``queue()`` - sets the format of the data to a queue (FIFO)
@@ -70,9 +70,9 @@ gcc -Wall -Werror -Wextra -pedantic *.c -o monty
 ```
 
 ## Example of Use
-After compiling, run the executable `./monty file`
+After compiling, run the executable `./monty` on your bytecode file.
 ```
-$ ./monty bytecode/00.m
+$ ./monty 00.m
 3
 2
 1

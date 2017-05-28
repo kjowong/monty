@@ -8,7 +8,6 @@
 void sub_first_second(stack_t **h, unsigned int line_number)
 {
 	stack_t *tmp;
-	int sub;
 
 	if (list_len(*h) < 2)
 	{
@@ -17,8 +16,7 @@ void sub_first_second(stack_t **h, unsigned int line_number)
 		return;
 	}
 	tmp = (*h)->next;
-	sub = (tmp->n - (*h)->n);
-	temp->n = sub;
+	tmp->n -= (*h)->n;
 	pop_node(h, line_number);
 	globals.retval = 0;
 }

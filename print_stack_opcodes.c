@@ -39,51 +39,53 @@ void pint(stack_t **h, unsigned int line_number)
 }
 
 /**
-  * rotl - rotates the stack to the top; the top element of the
-  * stack becomes the last one, and the second top element of the stack becomes
-  *  the first one
-  * @h: pointer to a pointer
-  * @ln: line number in the file with Monty bytecode
-  * Return: none
+ * pchar - prints the char at the top of the stack
+ * @h: head pointer
+ * @line_number: line number in the file with Monty byte code
  */
-void rotl(stack_t **h, __attribute__((unused))unsigned int ln)
+void pchar(stack_t **h, unsigned int line_number)
 {
-	stack_t *temp;
-
-	if (!h || !(*h) || !(*h)->next)
+	if (h == NULL || *h == NULL)
+	{
+		printf("L%u: can't pchar, stack empty\n", line_number);
+		globals.retval = -1;
 		return;
-	temp = *h;
-	*h = temp->next;
-	while (temp->next)
-		temp = temp->next;
-	temp->next = (*h)->prev;
-	temp->next->next = NULL;
-	temp->next->prev = temp;
-	(*h)->prev = NULL;
+	}
+	if ((*h)->n < 32 || (*h)->n > 126)
+	{
+		printf("L%u: can't pchar, value out of range\n", line_number);
+		globals.retval = -1;
+		return;
+	}
+	printf("%c\n", (*h)->n);
 	globals.retval = 0;
 }
 
 /**
-  * rotr - rotates the stack to the bottom, The last element
-  * of the stack becomes the top element of the stack
-  * @h: pointer to a pointer
-  * @ln: line number in the file with Monty bytecode
-  * Return: none
+ * pstr - prints the string starting at the top of the stack, followed by a
+ * new line. The integer stored in each element of the stack is treated as
+ * the ascii value of the character to be printed
+ * @h: head pointer
+ * @line_number: line number in the file with Monty byte code
  */
-void rotr(stack_t **h, __attribute__((unused))unsigned int ln)
+void pstr(stack_t **h, __attribute__((unused))unsigned int line_number)
 {
-	stack_t *temp;
+	stack_t *tmp;
 
-	if (!h || !(*h) || !(*h)->next)
+	if (!h || !(*h))
+	{
+		putchar('\n');
 		return;
-	temp = *h;
-	while (temp->next)
-		temp = temp->next;
-	temp->next = *h;
-	temp->prev->next = NULL;
-	temp->prev = NULL;
-	*h = temp;
-	temp->next->prev = temp;
+	}
+	tmp = *h;
+	while (tmp)
+	{
+		if ((tmp->n == 0) || (tmp->n < 32) || (tmp->n > 126))
+			break;
+		putchar(tmp->n);
+		tmp = tmp->next;
+	}
+	putchar('\n');
 	globals.retval = 0;
 }
 

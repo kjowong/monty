@@ -60,3 +60,52 @@ void nop(stack_t **head, __attribute__((unused)) unsigned int line_number)
 {
 	(void)head;
 }
+
+/**
+ * rotl - rotates the stack to the top; the top element of the
+ * stack becomes the last one, and the second top element of the stack becomes
+ *  the first one
+ * @h: pointer to a pointer
+ * @ln: line number in the file with Monty bytecode
+ * Return: none
+ */
+void rotl(stack_t **h, __attribute__((unused))unsigned int ln)
+{
+	stack_t *temp;
+
+	if (!h || !(*h) || !(*h)->next)
+		return;
+	temp = *h;
+	*h = temp->next;
+	while (temp->next)
+		temp = temp->next;
+	temp->next = (*h)->prev;
+	temp->next->next = NULL;
+	temp->next->prev = temp;
+	(*h)->prev = NULL;
+	globals.retval = 0;
+}
+
+/**
+ * rotr - rotates the stack to the bottom, The last element
+ * of the stack becomes the top element of the stack
+ * @h: pointer to a pointer
+ * @ln: line number in the file with Monty bytecode
+ * Return: none
+ */
+void rotr(stack_t **h, __attribute__((unused))unsigned int ln)
+{
+	stack_t *temp;
+
+	if (!h || !(*h) || !(*h)->next)
+		return;
+	temp = *h;
+	while (temp->next)
+		temp = temp->next;
+	temp->next = *h;
+	temp->prev->next = NULL;
+	temp->prev = NULL;
+	*h = temp;
+	temp->next->prev = temp;
+	globals.retval = 0;
+}

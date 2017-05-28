@@ -8,6 +8,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <math.h>
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -60,8 +61,8 @@ global_t globals;
 /* print stack opcodes */
 void pall(stack_t **h, unsigned int line_number);
 void pint(stack_t **h, unsigned int line_number);
-void rotl(stack_t **head, unsigned int line_number);
-void rotr(stack_t **head, unsigned int line_number);
+void pchar(stack_t **h, unsigned int line_number);
+void pstr(stack_t **h, unsigned int line_number);
 void print_rev(stack_t **h, unsigned int line_num);
 
 /* math stack opcodes */
@@ -75,30 +76,23 @@ void mod(stack_t **h, unsigned int line_number);
 void nop(stack_t **h, unsigned int line_number);
 void swap(stack_t **h, unsigned int line_number);
 void pop(stack_t **head, unsigned int line_number);
+void rotl(stack_t **head, unsigned int line_number);
+void rotr(stack_t **head, unsigned int line_number);
 
 /* push stack opcodes */
 void push_node(stack_t **head, int n);
 void push_node_mode(stack_t **head, unsigned int line_number);
 void push_node_end(stack_t **head, int n);
-
-/* stack and queue */
 void stack(stack_t **h, unsigned int line_num);
 void queue(stack_t **h, unsigned int line_num);
 
-/* Other print functions */
-void pchar(stack_t **h, unsigned int line_number);
-void pstr(stack_t **h, unsigned int line_number);
-
 /* Stack helper functions */
+void tokenize(char *line);
 int is_empty(char *str);
 int is_int(char *str);
 size_t list_len(stack_t *h);
-void tokenize(char *line);
+void free_list(stack_t *head);
 
 /* find opcode function pointer */
 int find_opcode(stack_t **head, unsigned int line_number);
-
-/* free memory functions */
-void free_array(char **array);
-void free_list(stack_t *head);
 #endif

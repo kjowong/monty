@@ -9,6 +9,12 @@ void push_node(stack_t **head, int n)
 {
 	stack_t *new_node;
 
+	if (!head)
+	{
+		printf("Error: malloc failed\n");
+		globals.retval = -1;
+		return;
+	}
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 	{
@@ -19,8 +25,8 @@ void push_node(stack_t **head, int n)
 	new_node->n = n;
 	new_node->prev = NULL;
 	new_node->next = *head;
-	if (new_node->next)
-		new_node->next->prev = new_node;
+	if (*head)
+		(*head)->prev = new_node;
 	*head = new_node;
 	globals.retval = 0;
 }

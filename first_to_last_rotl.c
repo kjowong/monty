@@ -11,16 +11,12 @@ void first_to_last_rotl(stack_t **h, __attribute__((unused))unsigned int ln)
 {
 	stack_t *temp;
 
-	if (!(*h) || !(*h) || (list_len(*h) < 2))
+	if (!h || !(*h) || !(*h)->next)
 		return;
 	temp = *h;
 	*h = temp->next;
-	while (1)
-	{
-		if (temp->next == NULL)
-			break;
+	while (temp->next)
 		temp = temp->next;
-	}
 	temp->next = (*h)->prev;
 	temp->next->next = NULL;
 	temp->next->prev = temp;

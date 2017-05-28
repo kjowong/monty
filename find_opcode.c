@@ -16,6 +16,7 @@ int find_opcode(stack_t **head, unsigned int line_number)
 		{"swap", swap_first_second},
 		{"add", add_first_second},
 		{"nop", nop_node},
+		{"sub", sub_first_second},
 		{"div", div_first_second},
 		{NULL, NULL}
 	};

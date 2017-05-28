@@ -10,15 +10,11 @@ void last_to_first_rotr(stack_t **h, __attribute__((unused))unsigned int ln)
 {
 	stack_t *temp;
 
-	if (!h || !(*h) || (list_len(*h) < 2))
+	if (!h || !(*h) || !(*h)->next)
 		return;
 	temp = *h;
-	while (1)
-	{
-		if (temp->next == NULL)
-			break;
+	while (temp->next)
 		temp = temp->next;
-	}
 	temp->next = *h;
 	temp->prev->next = NULL;
 	temp->prev = NULL;

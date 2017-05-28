@@ -53,6 +53,7 @@ typedef struct global_s
 	char *push_val;
 } global_t;
 extern global_t globals;
+global_t globals;
 
 void push_node(stack_t **head, int n);
 void print_all_pall(stack_t **h, unsigned int line_number);

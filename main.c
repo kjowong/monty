@@ -1,5 +1,4 @@
 #include "monty.h"
-global_t globals;
 /**
  * main - entry point for Monty project
  * @ac: number of arguments

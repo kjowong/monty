@@ -38,7 +38,7 @@ void push_node_mode(stack_t **head, unsigned int line_number)
 {
 	int n;
 
-	if (!globals.push_val || !is_int(globals.push_val))
+	if (!globals.push_val && !is_int(globals.push_val))
 	{
 		printf("L%u: usage: push integer\n", line_number);
 		globals.retval = -1;

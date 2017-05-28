@@ -90,12 +90,12 @@ void pstr(stack_t **h, __attribute__((unused))unsigned int line_number)
 }
 
 /**
- * print_rev - function that prints all the elements of a list in reverse
+ * prev - function that prints all the elements of a list in reverse
  * @h: pointer to the constant stack_t head
  * @line_num: line number in the file
  * Return: none
  */
-void print_rev(stack_t **h, __attribute__((unused))unsigned int line_num)
+void prev(stack_t **h, __attribute__((unused))unsigned int line_num)
 {
 	stack_t *temp;
 

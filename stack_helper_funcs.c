@@ -12,7 +12,7 @@ void tokenize(char *line)
 	globals.push_val = strtok(NULL, delim);
 }
 /**
- * is_empty - check if line needs t be tokenized
+ * is_empty - checks if line needs to be tokenized
  * @str: pointer to string
  * Return: 1 if it is, 0 if not
  */
@@ -30,7 +30,7 @@ int is_empty(char *str)
 	return (1);
 }
 /**
- * is_int - check if string contains all digits
+ * is_int - checks if string contains all digits
  * @str: pointer to string
  * Return: 1 if it is, 0 if not
  */

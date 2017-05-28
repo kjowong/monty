@@ -63,7 +63,7 @@ void pall(stack_t **h, unsigned int line_number);
 void pint(stack_t **h, unsigned int line_number);
 void pchar(stack_t **h, unsigned int line_number);
 void pstr(stack_t **h, unsigned int line_number);
-void print_rev(stack_t **h, unsigned int line_num);
+void prev(stack_t **h, unsigned int line_num);
 
 /* math stack opcodes */
 void add(stack_t **h, unsigned int line_number);

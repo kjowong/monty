@@ -53,21 +53,15 @@ typedef struct global_s
 	char *push_val;
 } global_t;
 extern global_t globals;
-void push_node_mode(stack_t **head, unsigned int line_number);
+
+void push_node(stack_t **head, int n);
 void print_all_pall(stack_t **h, unsigned int line_number);
-void nop_node(stack_t **h, unsigned int line_number);
+void print_first_pint(stack_t **h, unsigned int line_number);
 void pop_node(stack_t **head, unsigned int line_number);
 void swap_first_second(stack_t **h, unsigned int line_number);
-void push_node(stack_t **head, int n);
-void print_first_pint(stack_t **h, unsigned int line_number);
 void add_first_second(stack_t **h, unsigned int line_number);
-size_t list_len(stack_t *h);
-int find_opcode(stack_t **head, unsigned int line_number);
-void free_array(char **array);
-void free_list(stack_t *head);
-void tokenize(char *line);
-int is_empty(char *str);
-int is_int(char *str);
+void nop_node(stack_t **h, unsigned int line_number);
+
 void sub_first_second(stack_t **h, unsigned int line_number);
 void div_first_second(stack_t **h, unsigned int line_number);
 void mul_first_second(stack_t **h, unsigned int line_number);
@@ -76,5 +70,19 @@ void pchar(stack_t **h, unsigned int line_number);
 void pstr(stack_t **h, unsigned int line_number);
 void first_to_last_rotl(stack_t **head, unsigned int line_number);
 void last_to_first_rotr(stack_t **h, unsigned int ln);
+void stack(stack_t **h, unsigned int line_num);
+void queue(stack_t **h, unsigned int line_num);
+
+void push_node_mode(stack_t **head, unsigned int line_number);
+void push_node_end(stack_t **head, int n);
 void print_rev(stack_t **h, unsigned int line_num);
+
+void tokenize(char *line);
+int is_empty(char *str);
+int is_int(char *str);
+
+int find_opcode(stack_t **head, unsigned int line_number);
+void free_array(char **array);
+void free_list(stack_t *head);
+size_t list_len(stack_t *h);
 #endif

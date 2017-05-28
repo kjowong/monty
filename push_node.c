@@ -46,5 +46,5 @@ void push_node_mode(stack_t **head, unsigned int line_number)
 	if (globals.mode == 0)
 		push_node(head, n);
 	else
-		push_node(head, n);
+		push_node_end(head, n);
 }

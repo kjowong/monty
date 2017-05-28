@@ -24,6 +24,8 @@ int find_opcode(stack_t **head, unsigned int line_number)
 		{"pstr", pstr},
 		{"rotl", first_to_last_rotl},
 		{"rotr", last_to_first_rotr},
+		{"stack", stack},
+		{"queue", queue},
 		{NULL, NULL}
 	};
 

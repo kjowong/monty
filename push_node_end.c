@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
- * push_node_end - adds a new node at the end of a dubly linked list
+ * push_node_end - adds a new node at the end of a doubly linked list
  * @head: head pointer
  * @n: new node interger to be added
  * Return: none

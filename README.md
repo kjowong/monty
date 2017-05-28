@@ -58,7 +58,6 @@ Once cloned over, the repository will contain the following files:
   * ``is_int()`` - checks if string contains all digits
   * ``list_len()`` - returns the number of elements in a list
   * ``free_list()`` - frees a list
-9. [AUTHORS](AUTHORS) - List of contributors.
 
 ## How to Use
 First step is to clone the repository into your directory

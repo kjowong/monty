@@ -16,7 +16,7 @@ Once cloned over, the repository will contain the following files:
 | main.c      | contains main function to Monty        |
 | find_opcode.c | function pointer to find correct function |
 | manipulate_stack_opcodes.c     | contains functions that manipulate the stack (pop, swap, nop, rotl, rotr) |
-| math_stack_opcodes.c | contains functions that perform math operations with node data (add, sub, mul, div, mod) |
+| math_stack_opcodes.c | contains functions that perform math operations on node data (add, sub, mul, div, mod) |
 | print_stack_opcodes.c     | contains functions that print elements of the list (pall, pint, pchar, pstr, prev) |
 | push_stack_opcodes.c     | contains functions related to push node (push to beginning or end, check mode, switch mode)|
 | stack_helper_funcs.c | contains helper functions (tokenize, list lenght, free list, is_int, is_empty)|
@@ -33,22 +33,30 @@ Once cloned over, the repository will contain the following files:
   * ``nop()`` - does nothing
   * ``rotl()`` - rotates the stack to the top, top element becomes the last one, and second element becomes the first one
   * ``rotr()`` - rotates the stack to the bottom, last element becomes the top element of the stack  
-5. [math_stack_opcodes.c](math_stack_opcodes.c) - Includes all functions that deal with the environment:
+5. [math_stack_opcodes.c](math_stack_opcodes.c) - Functions that perform math operations on node data:
   * ``add()`` - adds the top two elements of the stack, stores result in second element, and top element is removed
   * ``sub()`` - subtracts the top element from the second element, stores result in second element, and top element is removed
   * ``_div()`` - divides second element by the top element, stores result in second element, and top element is removed
   * ``mul()`` - multiplies the top two elements of the stack, stores result in second element, and top element is removed
   * ``mod()`` - computes the rest of the division of the second top element of the stack by the top element of the stack, stores result in second element, and top element is removed
-6. [print_stack_opcodes.c](print_stack_opcodes.c) - Includes function to convert the environmental variable linked list into a double pointer array:
-  * ``conv_list_to_array()`` - Converts the environmental linked list into a double pointer array
-7. [push_stack_opcodes.c](push_stack_opcodes.c) - Includes functions to free memory:
-  * ``free_input_list()`` - Frees the input linked list (Currently not in use)
-  * ``free_env_list()`` - Frees the environmental variable linked list
-  * ``free_env_array()`` - Frees the double pointer environmental variable array
-  * ``free_path_array()`` - Frees the double pointer path array
-  * ``free_mem()`` - Function that calls all the free functions
-8. [stack_helper_funcs.c](stack_helper_funcs.c) - Includes a function to get the builtin functions:
-  * ``*get_builtin_func()`` - Function pointer that points to the builtin function the user inputs
+6. [print_stack_opcodes.c](print_stack_opcodes.c) - Functions that print elements of the list:
+  * ``pall()`` - prints all the values on the stack, starting from the top of the stack
+  * ``pint()`` - prints the value at the top of the stack, followed by a new line
+  * ``pchar()`` - prints the char at the top of the stack, followed by a new line
+  * ``pstr()`` - prints the string starting at the top of the stack, followed by a new line
+  * ``prev()`` - prints all the elements of a list in reverse
+7. [push_stack_opcodes.c](push_stack_opcodes.c) - Functions related to push node:
+  * ``push_node()`` - adds new node to the beginning of doubly linked list (stack mode)
+  * ``push_node_mode()`` - checks what mode we are suing (stack or queues) and calls the appropriate push function
+  * ``push_node_end()`` - function that adds new node to the end of doubly linked list (queue mode)
+  * ``stack()`` - sets the format of the data to a stack (LIFO)
+  * ``queue()`` - sets the format of the data to a queue (FIFO)
+8. [stack_helper_funcs.c](stack_helper_funcs.c) - Helper functions:
+  * ``tokenize()`` - tokenizes the line from Monty bytecode file
+  * ``is_empty()`` - checks if line needs to be tokenized
+  * ``is_int()`` - checks if string contains all digits
+  * ``list_len()`` - returns the number of elements in a list
+  * ``free_list()`` - frees a list
 9. [AUTHORS](AUTHORS) - List of contributors.
 10. [man_1_simple_shell](man_1_simple_shell) - Manual page for the shell.
 
